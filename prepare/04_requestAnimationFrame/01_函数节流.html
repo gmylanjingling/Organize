@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      height:2000px;
+    }
+  </style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    /*
+    * 函数节流：
+    *   概念： 设定特定的时间，让函数在特定事件内置执行一次，不会频繁执行
+    *   实现：设定标识和时间
+    *
+    * */
+    // 需求，在滚动条一直滚动的情况下2s打印一次标识；
+    var flag = false; // 标识页面没有滚动
+    document.getElementsByTagName('body')[0].onscroll = function () {
+      if(flag){
+        return;
+      }
+      flag = true;
+      console.log('scroll');
+      setTimeout(function () {
+        flag = false;
+      }, 2000)
+    }
+  /* document.getElementsByTagName('body')[0].onscroll=function(){
+       //console.log('scroll');//此时移动滚动条会一直执行
+       //  此时实现的滚动条在不停滚动，两秒打印很多次
+       setTimeout(function(){
+           console.log('scroll');
+       },2000);
+       //让其在滚动条停止滚动时出现
+       let flag = false;
+       if(flag){
+           return;
+       }
+       flag = true;
+       setTimeout(function(){
+        console.log('scroll');
+        flag = false;
+       },2000);
+   }*/
+
+
+</script>
+
+
+
+</body>
+</html>

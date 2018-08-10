@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin:0;
+      padding:0;
+    }
+
+    #test {
+      width: 200px;
+      height: 200px;
+      background: green;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin:auto;
+    }
+  </style>
+</head>
+<body>
+
+<div id="test">
+
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+      console.log('onload');
+      var i = 0;
+//      setInterval(function () {
+//        i += 10
+//        document.getElementById('test').style.transform = 'translateX(' + i + 'px)';
+//      }, 100);
+      
+      window.requestAnimationFrame(fn);
+//      function fn(DOMHighResTimeStamp) {
+//        console.log('animation', DOMHighResTimeStamp);
+//        if(i < 200){
+//          i += 1;
+//          document.getElementById('test').style.transform = 'translateX(' + i + 'px)';
+//          window.requestAnimationFrame(fn);
+//        }
+//      }
+      var flag = false;
+      function fn(DOMHighResTimeStamp) {
+        window.requestAnimationFrame(fn);
+        if(flag){
+          return;
+        }
+        flag = true;
+        setTimeout(function () {
+          flag = false;
+        }, 1000)
+        console.log('animation', DOMHighResTimeStamp);
+        i += 10;
+        document.getElementById('test').style.transform = 'translateX(' + i + 'px)';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('DOMContentLoaded');
+    })
+</script>
+
+</body>
+</html>

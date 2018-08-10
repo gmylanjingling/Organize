@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+    // sessionStorage(会话存储), localStorage H5的本地缓存
+    /*
+      cookie: 4kb左右
+    * 缓存数据的大小： localStorage更大 5M
+    * 生命周期：
+    *   sessionStorage：浏览器打开道关闭的过程
+    *   localStorage： 永久的，除非人为删除
+    *
+    * 方法：
+    *   添加：setItem(key, value)
+    *   获取：getItem(key)
+    *   删除： removeItem(key)
+    *   清除： clear();
+    *  注意：存储的时候只能存json数据
+    *
+    * */
+
+
+    // 实现两个页面的通信
+    // 1. storage事件
+    // 2. localStorage缓存(中转站)
+
+    let obj = {name: 'kobe'};
+    // sessionStorage.setItem('PERSON',  JSON.stringify(obj));
+    localStorage.setItem('PERSON',  JSON.stringify(obj));
+    console.log(typeof JSON.parse(localStorage.getItem('PERSON')));
+
+</script>
+</body>
+</html>

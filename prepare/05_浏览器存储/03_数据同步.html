@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="val">
+<script type="text/javascript">
+    /*
+    * storage事件：
+      Storage 对象发生变化时（即创建/更新/删除数据项时，Storage.clear() 方法至多触发一次该事件）会触发
+      在同一个页面内发生的改变不会起作用
+      在相同域名下的其他页面发生的改变才会起作用。(修改的页面不会触发事件，与它共享的页面会触发事件)
+        key 	    :  修改或删除的key值，如果调用clear(),为null
+        newValue    :  新设置的值，如果调用clear(),为null
+        oldValue    :  调用改变前的value值,如果调用clear(),为null
+        url         :  触发该脚本变化的文档的url
+        storageArea :  当前的storage对象
+
+    * */
+
+    // 问题： 如何修改一个页面的数据，另一个页面能够及时响应， 如：淘宝的多个页面之间如何通信
+
+    window.onload = function () {
+     var key = 'value';
+      document.getElementById('val').onblur = function () {
+        localStorage.setItem(key, this.value)
+      }
+    }
+
+</script>
+</body>
+</html>
